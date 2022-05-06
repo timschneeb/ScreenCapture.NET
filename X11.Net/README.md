@@ -1,3 +1,5 @@
+Note: This library has been modified to work with the latest xlib. Original repo: https://github.com/ajnewlands/X11.Net/
+
 # X11.Net
 The project implements an interface to the Xlib / X11 / X windowing system libraries from .NET core/C#. It began prosaically enough; I needed to do make some simple Xlib calls from a C# program and developed from there.
 
