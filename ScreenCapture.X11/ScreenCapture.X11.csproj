@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="X11" Version="1.0.6" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ScreenCapture.Base\ScreenCapture.Base.csproj" />
+      <ProjectReference Include="..\X11.Net\X11\X11.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Utils\Ref.cs" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ScreenCapture.Base\ScreenCapture.Base.csproj" />
+      <ProjectReference Include="..\ScreenCapture.X11\ScreenCapture.X11.csproj" />
+    </ItemGroup>
+
+</Project>
