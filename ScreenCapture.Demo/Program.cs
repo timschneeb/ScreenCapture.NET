@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 
+// Create ScreenCapture for the current platform (only X11/Linux supported at the moment)
 var capture = ScreenCapture.ScreenCaptureFactory.Build();
 
 void PrintColorAt(uint x, uint y)

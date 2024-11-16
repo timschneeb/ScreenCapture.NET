@@ -1,6 +1,4 @@
 using ScreenCapture.X11.Utils;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
 using X11;
 using Color = System.Drawing.Color;
 using IImage = ScreenCapture.Base.IImage;
@@ -22,9 +20,9 @@ public class X11Image : IImage
     /**
      * <summary>Get XPixel at coordinates from XImage</summary>
      **/
-    public XPixel GetXPixel(uint x, uint y)
+    public XPixel GetXPixel(int x, int y)
     {
-        return X11NativeExtensions.XGetPixel(ref _image, (int)x, (int)y);
+        return X11NativeExtensions.XGetPixel(ref _image, x, y);
     }
     
     /**
@@ -64,7 +62,7 @@ public class X11Image : IImage
     #endregion
     
     #region Global API
-    public Color GetPixel(uint x, uint y)
+    public Color GetPixel(int x, int y)
     {
         if (x > _image.width)
             throw new ArgumentOutOfRangeException(nameof(x));
@@ -83,8 +81,8 @@ public class X11Image : IImage
         
         return ConvertPixelToRgb(xPixel);
     }
-    
-    public uint GetPixelPacked(uint x, uint y)
+
+    public uint GetPixelPacked(int x, int y)
     {
         if (x > _image.width)
             throw new ArgumentOutOfRangeException(nameof(x));
@@ -94,7 +92,7 @@ public class X11Image : IImage
         return ConvertPixelToRgbUint(GetXPixel(x, y));
     }
     
-    public uint[][] GetRegion(uint width, uint height, uint x, uint y)
+    public uint[][] GetRegion(int width, int height, int x, int y)
     {
         if (x + width > _image.width)
             throw new ArgumentOutOfRangeException(nameof(height));
@@ -115,11 +113,12 @@ public class X11Image : IImage
 
     public uint[][] GetAll()
     {
-        return GetRegion((uint)Width, (uint)Height, 0, 0);
+        return GetRegion(Width, Height, 0, 0);
     }
     
     public int Width => _image.width;
     public int Height => _image.height;
+    public int PixelCount => _image.height * _image.width;
     #endregion
 
     public void Dispose()
